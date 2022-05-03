@@ -7,12 +7,13 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvInput"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@color/light_grey"
         android:textSize="48sp"
         android:padding="10dp"
-        android:text="012345"
+        android:text=""
         android:gravity="end|bottom"/>
 
     <LinearLayout
@@ -28,10 +29,11 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="AC"
+            android:onClick="onClear"
             android:textColor="@color/black"
             android:textStyle="bold"
             style="?android:attr/buttonBarButtonStyle"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights,UsingOnClickInXml" />
         <Button
             android:id="@+id/btnEliminar"
             android:layout_width="0dp"
@@ -39,6 +41,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="<-"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -49,6 +52,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="%"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -59,6 +63,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="/"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#29b6f6"
@@ -78,6 +83,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="7"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle"
@@ -89,6 +95,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="8"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -99,6 +106,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="9"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -109,6 +117,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="x"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#29b6f6"
@@ -128,6 +137,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="4"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle"
@@ -139,6 +149,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="5"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -149,6 +160,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="6"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -159,6 +171,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="-"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#29b6f6"
@@ -178,6 +191,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="1"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle"
@@ -189,6 +203,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="2"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -199,6 +214,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="3"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -209,6 +225,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="+"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#29b6f6"
@@ -228,6 +245,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text=","
+            android:onClick="onDecimalPoint"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle"
@@ -239,6 +257,7 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="0"
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
@@ -249,10 +268,11 @@
             android:layout_weight="2"
             android:layout_margin="3dp"
             android:text="="
+            android:onClick="onDigit"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#ffa726"
-            style="?android:attr/buttonBarButtonStyle" />
+            style="?android:attr/buttonBarButtonStyle"/>
     </LinearLayout>
 
 
