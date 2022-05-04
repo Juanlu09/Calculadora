@@ -26,7 +26,7 @@
             android:id="@+id/btnBorrar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_margin="3dp"
             android:text="AC"
             android:onClick="onClear"
@@ -41,21 +41,11 @@
             android:layout_weight="1"
             android:layout_margin="3dp"
             android:text="DEL"
-            android:onClick="onDigit"
+            android:onClick="onDelete"
             android:textStyle="bold"
             android:textColor="@color/black"
             style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/btnPorcentaje"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="3dp"
-            android:text="%"
-            android:onClick="onDigit"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            style="?android:attr/buttonBarButtonStyle" />
+
         <Button
             android:id="@+id/btnDividir"
             android:layout_width="0dp"
@@ -66,7 +56,7 @@
             android:onClick="onOperator"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:backgroundTint="#29b6f6"
+            android:backgroundTint="@color/light_blue"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
@@ -120,7 +110,7 @@
             android:onClick="onOperator"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:backgroundTint="#29b6f6"
+            android:backgroundTint="@color/light_blue"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
@@ -174,7 +164,7 @@
             android:onClick="onOperator"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:backgroundTint="#29b6f6"
+            android:backgroundTint="@color/light_blue"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
@@ -228,7 +218,7 @@
             android:onClick="onOperator"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:backgroundTint="#29b6f6"
+            android:backgroundTint="@color/light_blue"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
@@ -244,7 +234,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="3dp"
-            android:text=","
+            android:text="."
             android:onClick="onDecimalPoint"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -271,7 +261,7 @@
             android:onClick="onEqual"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:backgroundTint="#ffa726"
+            android:backgroundTint="@color/orange"
             style="?android:attr/buttonBarButtonStyle"/>
     </LinearLayout>
 

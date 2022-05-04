@@ -1,11 +1,12 @@
 package com.example.calculadora
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import java.lang.ArithmeticException
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,51 +31,119 @@ class MainActivity : AppCompatActivity() {
         tvInput?.text = ""
     }
 
+    fun onDelete(view: View) {
+        if (tvInput?.text.isNullOrBlank()) {
+            tvInput?.text = ""
+        } else {
+            var delete: String = tvInput?.text.toString()
+            delete = delete.substring(0, delete.length - 1)
+            tvInput?.text = delete
+        }
+    }
+
     fun onDecimalPoint(view: View) {
         if (lastNumeric && !lastDot) {
-            tvInput?.append(",")
+            tvInput?.append(".")
             lastNumeric = false
             lastDot = true
         }
     }
 
-    fun onOperator(view:View){
+    fun onOperator(view: View) {
         tvInput?.text?.let {
-            if(lastNumeric && !isOpertatorAdded(it.toString())){
+            if (lastNumeric && !isOpertatorAdded(it.toString())) {
                 tvInput?.append((view as Button).text)
-                lastNumeric=false
-                lastDot=false
+                lastNumeric = false
+                lastDot = false
             }
         }
     }
 
-    fun onEqual(view: View){
-        if (lastNumeric){
-            var tvValue =tvInput?.text.toString()
+    @SuppressLint("SetTextI18n")
+    fun onEqual(view: View) {
+        if (lastNumeric) {
+            var tvValue = tvInput?.text.toString()
             var prefix = ""
 
             try {
-                if (tvValue.startsWith("-")){
-                    prefix="-"
-                    tvValue=tvValue.substring(1)
+                if (tvValue.startsWith("-")) {
+                    prefix = "-"
+                    tvValue = tvValue.substring(1)
                 }
-                if (tvValue.contains("-")){
-                    val splitValue= tvValue.split("-")
+                if (tvValue.contains("-")) {
+                    val splitValue = tvValue.split("-")
 
-                    var one =splitValue[0]
-                    var two=splitValue[1]
+                    var one = splitValue[0]
+                    val two = splitValue[1]
 
-                    if (prefix.isNotEmpty()){
-                        one=prefix+one
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
                     }
+                    tvInput?.text =
+                        removeZeroAfterResult((one.toDouble() - two.toDouble()).toString())
 
-                    tvInput?.text=(one.toDouble()-two.toDouble()).toString()
+                } else if (tvValue.contains("+")) {
+                    val splitValue = tvValue.split("+")
+
+                    var one = splitValue[0]
+                    val two = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
+                    }
+                    tvInput?.text =
+                        removeZeroAfterResult((one.toDouble() + two.toDouble()).toString())
+
+                } else if (tvValue.contains("/")) {
+                    val splitValue = tvValue.split("/")
+
+                    var one = splitValue[0]
+                    val two = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
+                    }
+                    tvInput?.text =
+                        removeZeroAfterResult((one.toDouble() / two.toDouble()).toString())
+
+                } else if (tvValue.contains("x")) {
+                    val splitValue = tvValue.split("x")
+
+                    var one = splitValue[0]
+                    val two = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
+                    }
+                    tvInput?.text =
+                        removeZeroAfterResult((one.toDouble() * two.toDouble()).toString())
+
+                } else if (tvValue.contains("%")) {
+                    val splitValue = tvValue.split("%")
+
+                    var one = splitValue[0]
+                    val two = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
+                    }
+                    tvInput?.text =
+                        removeZeroAfterResult((one.toDouble() % two.toDouble()).toString())
+
                 }
 
             } catch (e: ArithmeticException) {
                 e.printStackTrace()
             }
         }
+    }
+
+    private fun removeZeroAfterResult(result: String): String {
+        var value = result
+        if (result.contains(".0")) {
+            value = result.substring(0, result.length - 2)
+        }
+        return value
     }
 
     private fun isOpertatorAdded(value: String): Boolean {
