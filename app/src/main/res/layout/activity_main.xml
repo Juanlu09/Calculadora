@@ -268,7 +268,7 @@
             android:layout_weight="2"
             android:layout_margin="3dp"
             android:text="="
-            android:onClick="onDigit"
+            android:onClick="onEqual"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#ffa726"
